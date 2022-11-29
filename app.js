@@ -5,9 +5,12 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.json())
+require('./db')()
 
-// app.use('/landings', landings) //revisar!
+app.use(express.json());
+
+app.use('/landings', landings) //revisar!
+app.use('/neas', neas) //revisar!
 
 //PING
 
