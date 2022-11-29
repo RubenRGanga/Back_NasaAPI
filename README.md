@@ -5,4 +5,6 @@ Ejercicio de Backend.
 
 1_Clonamos el repositorio e instalamos dependencias necesarias con el comando "npm install" en la terminal de VisualCode. 
 
+2_Iniciamos el programa con el comando node app.js
+
 
