@@ -1,9 +1,10 @@
 const fs = require('fs')
 
-let data = require('./landings.json')
+let data = require('./landings')
 
 data.forEach((item) => {
     item.mass = +item.mass
+    item.year = new Date(item.year).getFullYear()
     item.id = +item.id
     item.reclat = +item.reclat
     item.reclong = +item.reclong
@@ -17,6 +18,6 @@ data.forEach((item) => {
 
 data = JSON.stringify(data, null, 4)
 
-fs.writeFile('landingsCorrejido.json', data, () => {
-    console.log("Nuevo Json Corregido")
+fs.writeFile('landings2.json', data, () => {
+    console.log("Json Corregido")
 })

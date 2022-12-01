@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 const neasSchema = new mongoose.Schema({
     designation: String,
-    discovery_date: String,
-    h_mag: Number,
+    discovery_date: Date,
+    h_mag: String,
     moid_au: Number,
     q_au_1: Number,
     q_au_2: Number,

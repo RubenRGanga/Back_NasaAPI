@@ -9,8 +9,8 @@ require('./db')()
 
 app.use(express.json());
 
-app.use('/landings', landings) //revisar!
-app.use('/neas', neas) //revisar!
+app.use('/api/astronomy/landings', landings) 
+app.use('/api/astronomy/neas', neas) 
 
 //PING
 
