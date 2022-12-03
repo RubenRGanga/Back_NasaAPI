@@ -1,3 +1,4 @@
+const asyncRoutes = require('../middleware/async')
 const Users = require('../models/users')
 const express = require('express')
 const router = express.Router()

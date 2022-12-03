@@ -1,3 +1,4 @@
+const asyncRoutes = require('../middleware/async')
 const Neas = require('../models/neas')
 const express = require('express')
 const router = express.Router()
