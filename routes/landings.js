@@ -45,29 +45,27 @@ router.get('/', async (req, res) => {
 
 //5_POST_CREAR UN NUEVO LANDING EN LA BD.
 
-router.post('/api/astronomy/create', async (req, res) => {
-    
+router.post('/create', async (req, res) => {
     const landing = new Landings(req.body) 
-
     const newLanding = await landing.save()
-
     res.send(newLanding)
+    console.log('Nuevo Landing añadido a la base de datos.')
 })
 
-//6_PUT_EDITAR UN LANDING, BUSQUEDA POR ID. (HACER REQUEST)
+//6_PUT_EDITAR UN LANDING, BUSQUEDA POR ID.
 
-router.put('/api/astronomy/editar/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
     const landing = await Landings.findOneAndUpdate({id: req.params.id}, req.body)
-
     res.send(landing)
+    console.log(`Editado Landing con id: ${req.params.id}`)
 })
 
-//6_DELETE_BORRAR UN LANDING, BUSQUEDA POR ID. (HACER REQUEST)
+//6_DELETE_BORRAR UN LANDING, BUSQUEDA POR ID.
 
-router.delete('/api/astronomy/delete/:id', async (req, res) => {
-    const landing = await Landing.findOneAndDelete({id: req.params.id})
-
+router.delete('/delete/:id', async (req, res) => {
+    const landing = await Landings.findOneAndDelete({id: req.params.id})
     res.send(landing)
+    console.log(`Eliminado Landing con id: ${req.params.id}`)
 })
 
 module.exports = router
