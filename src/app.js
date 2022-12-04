@@ -1,4 +1,4 @@
-//REQUERIR MODULOS Y APPS
+//APP
 
 const winston = require('winston')
 const express = require('express')

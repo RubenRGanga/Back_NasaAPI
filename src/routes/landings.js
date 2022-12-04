@@ -1,7 +1,10 @@
+//RUTAS DE LANDINGS
+
 const asyncRoutes = require('../middleware/async')
 const Landings = require('../models/landings')
 const express = require('express')
 const router = express.Router()
+const winston = require('winston')
 
 //1_GET_NOMBRE Y MASA DE OBJETOS CON MASA SUPERIOR A LA ESPECIFICADA.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/landings/mass/minimo/50
@@ -50,7 +53,7 @@ router.post('/create', async (req, res) => {
     const landing = new Landings(req.body) 
     const newLanding = await landing.save()
     res.send(newLanding)
-    console.log('Nuevo Landing añadido a la base de datos.')
+    winston.info('Nuevo Landing añadido a la base de datos.')
 })
 
 //6_PUT_EDITAR UN LANDING, BUSQUEDA POR ID.
@@ -58,7 +61,7 @@ router.post('/create', async (req, res) => {
 router.put('/edit/:id', async (req, res) => {
     const landing = await Landings.findOneAndUpdate({id: req.params.id}, req.body)
     res.send(landing)
-    console.log(`Editado Landing con id: ${req.params.id}`)
+    winston.info(`Editado Landing con id: ${req.params.id}`)
 })
 
 //6_DELETE_BORRAR UN LANDING, BUSQUEDA POR ID.
@@ -66,7 +69,7 @@ router.put('/edit/:id', async (req, res) => {
 router.delete('/delete/:id', async (req, res) => {
     const landing = await Landings.findOneAndDelete({id: req.params.id})
     res.send(landing)
-    console.log(`Eliminado Landing con id: ${req.params.id}`)
+    winston.info(`Eliminado Landing con id: ${req.params.id}`)
 })
 
 module.exports = router

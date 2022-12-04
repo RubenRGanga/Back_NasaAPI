@@ -1,7 +1,7 @@
+//SCHEMA - LANDINGS
+
 const mongoose = require('mongoose');
 const Joi = require('joi')
-
-//SCHEMA - LANDINGS
 
 const landingsSchema = new mongoose.Schema({
     name: String,

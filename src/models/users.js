@@ -1,7 +1,7 @@
+//SCHEMA - USERS
+
 const mongoose = require('mongoose')
 const Joi = require('joi')
-
-//SCHEMA - USERS
 
 const usersSchema = new mongoose.Schema({
     name: {

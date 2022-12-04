@@ -1,7 +1,7 @@
+//SCHEMA - NEAS
+
 const mongoose = require('mongoose');
 const Joi = require('joi')
-
-//SCHEMA - NEAS
 
 const neasSchema = new mongoose.Schema({
     designation: String,

@@ -1,4 +1,7 @@
+//RUTAS DE NEAS
+
 const asyncRoutes = require('../middleware/async')
+const winston = require('winston')
 const Neas = require('../models/neas')
 const express = require('express')
 const router = express.Router()
@@ -28,7 +31,7 @@ router.post('/create', async (req, res) => {
     const nea = new Neas(req.body) 
     const newnea = await nea.save()
     res.send(newnea)
-    console.log('Nuevo NEA añadido a la base de datos.')
+    winston.info('Nuevo NEA añadido a la base de datos.')
 })
 
 //4_PUT_ACTUALIZAR NEA EN LA BASE DE DATOS, SELECCIONAR POR "DESIGNATION".
@@ -36,7 +39,7 @@ router.post('/create', async (req, res) => {
 router.put('/edit/:designation', async (req, res) => {
     const nea = await Neas.findOneAndUpdate({designation: req.params.designation}, req.body)
     res.send(nea)
-    console.log(`Editado NEA con designation: ${req.params.designation}`)
+    winston.info(`Editado NEA con designation: ${req.params.designation}`)
 })
 
 //5_DELETE_ELIMINAR NEA EN LA BASE DE DATOS, SELECCIONAR POR "DESIGNATION".
@@ -44,7 +47,7 @@ router.put('/edit/:designation', async (req, res) => {
 router.delete('/delete/:designation', async (req, res) => {
     const nea = await Neas.findOneAndDelete({designation: req.params.designation})
     res.send(nea)
-    console.log(`Eliminado NEA con designation: ${req.params.designation}`)
+    winston.info(`Eliminado NEA con designation: ${req.params.designation}`)
 })
 
 

@@ -1,4 +1,7 @@
+//RUTAS DE USERS
+
 const asyncRoutes = require('../middleware/async')
+const winston = require('winston')
 const Users = require('../models/users')
 const express = require('express')
 const router = express.Router()
@@ -28,7 +31,7 @@ router.post('/create', async (req, res) => {
     const user = new Users(req.body) 
     const newuser = await user.save()
     res.send(newuser)
-    console.log('Nuevo usuario añadido a la base de datos.')
+    winston.info('Nuevo usuario añadido a la base de datos.')
 })
 
 //4_PUT_EDITAR UN USARIO, SELECCIONAR POR E-MAIL.
@@ -36,7 +39,7 @@ router.post('/create', async (req, res) => {
 router.put('/edit/:email', async (req, res) => {
     const user = await Users.findOneAndUpdate({email: req.params.email}, req.body)
     res.send(user)
-    console.log(`Editado usuario con email: ${req.params.email}`)
+    winston.info(`Editado usuario con email: ${req.params.email}`)
 })
 
 //5_DELETE_ELIMINAR UN USUARIO, SELECCIONAR POR E-MAIL.
@@ -44,7 +47,7 @@ router.put('/edit/:email', async (req, res) => {
 router.delete('/delete/:email', async (req, res) => {
     const user = await Users.findOneAndDelete({email: req.params.email})
     res.send(user)
-    console.log(`Eliminado usuario con email: ${req.params.email}`)
+    winston.info(`Eliminado usuario con email: ${req.params.email}`)
 })
 
 module.exports = router

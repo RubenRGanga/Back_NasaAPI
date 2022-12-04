@@ -3,7 +3,6 @@ const fs = require('fs')
 let data = require('./neas.json')
 
 data.forEach((item) => {
-    item.discovery_date = new Date(item.discovery_date).getDay.getMonth.getFullYear()
     item.h_mag = +item.h_mag
     item.moid_au = +item.moid_au
     item.q_au_1 = +item.q_au_1
