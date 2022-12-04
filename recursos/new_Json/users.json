@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "638b7bcc090c23265c8d01f3"
+  },
+  "name": "Antonio LLamas",
+  "nickname": "StarDog",
+  "email": "allamas@thebridgeschool.es",
+  "picture": "allamas.jpg",
+  "affiliatedNumber": 2,
+  "affiliationDate": {
+    "$date": {
+      "$numberLong": "1643929200000"
+    }
+  },
+  "occupation": "JS MASTER",
+  "birthdate": {
+    "$date": {
+      "$numberLong": "570931200000"
+    }
+  },
+  "neas_discovered": [
+    {
+      "$oid": "63888acc6145ce8d6cfb649c"
+    },
+    {
+      "$oid": "63888acc6145ce8d6cfb64aa"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b7c65090c23265c8d01f7"
+  },
+  "name": "Rubén R. Ganga",
+  "nickname": "BlackHole",
+  "email": "rubenruizganga@yahoo.es",
+  "picture": "rrganga.jpg",
+  "affiliatedNumber": 1,
+  "affiliationDate": {
+    "$date": {
+      "$numberLong": "1643929200000"
+    }
+  },
+  "occupation": "FULLSTACK",
+  "birthdate": {
+    "$date": {
+      "$numberLong": "485308800000"
+    }
+  },
+  "neas_discovered": [
+    {
+      "$oid": "638b7c2e090c23265c8d01f5"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b8338c8cec028113ca3d5"
+  },
+  "name": "Albertu Henriques",
+  "nickname": "Malaga",
+  "email": "albertu.enriques@thebridgeschool.es",
+  "picture": "albertu.jpg",
+  "affiliatedNumber": 3,
+  "affiliationDate": {
+    "$date": {
+      "$numberLong": "1580770800000"
+    }
+  },
+  "occupation": "TA FS FT",
+  "birthdate": {
+    "$date": {
+      "$numberLong": "697161600000"
+    }
+  },
+  "neas_discovered": [
+    {
+      "$oid": "62ea90a3cb0eae19fe5c1f95"
+    },
+    {
+      "$oid": "47ea90a3cb0eae19fe5c1f95"
+    },
+    {
+      "$oid": "33ea90a3cb0eae19fe5c1f95"
+    }
+  ],
+  "__v": 0
+}]

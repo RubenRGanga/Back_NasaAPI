@@ -12,7 +12,7 @@ module.exports = function () {
             winston.format.label({label:'[INFO]'}),
             winston.format.timestamp({format:"DD-MM-YYYY HH:mm:ss"}),
             winston.format.printf(info => 
-                ` ${info.label} ${info.timestamp} : ${info.message}`
+                `${info.label} : ${info.message} ${info.timestamp}`
             )
       )}))
     
@@ -20,6 +20,6 @@ module.exports = function () {
         new winston.transports.File({ filename: 'logs/exceptions.log', exitOnError: true })
     );
     
-    winston.add(new winston.transports.MongoDB({db: process.env.MONGO_URI, collection : 'nasaDB',
+    winston.add(new winston.transports.MongoDB({db: process.env.MONGO_URI, collection : 'nasa_DB',
     level : 'error'}));
 }
