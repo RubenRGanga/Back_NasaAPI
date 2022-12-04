@@ -2,6 +2,11 @@
 
 Ejercicio de Backend.
 
+DESPLIEGUE Y GETS:
+https://ruben-proyecto-nasa-backend.onrender.com/
+
+INSTRUCCIONES PARA EJECUTAR DESDE EL REPOSITORIO EN VISUAL CODE.
+
 Dependencies:
 "dotenv": "^16.0.3",
 "express": "^4.18.2",
@@ -19,6 +24,4 @@ Dependencies:
 
 3_Iniciamos el programa con el comando node app.js
 
-4_Puedes encontrar las rutas de los ejercicios de "GET" en src/routes/landings, src/routes/neas, y src/routes/users.
-
-5_Puedes encontrar los request para el resto de ejercicios en nasa_request.json inportandolos en Thunder Client.
+4_Puedes encontrar los request para el resto de ejercicios en nasa_request.json inportandolos en Thunder Client.
