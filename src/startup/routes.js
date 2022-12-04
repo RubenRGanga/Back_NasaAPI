@@ -6,7 +6,9 @@ const errors = require('../middleware/errors')
 const landings = require('../routes/landings');
 const neas = require('../routes/neas');
 const users = require('../routes/users');
-const express = require('express')
+const express = require('express');
+
+const app = express();
 
 module.exports = function (app) {
     app.use(express.json())
@@ -19,7 +21,7 @@ module.exports = function (app) {
 
     app.get('/ping', (req, res) => {
         res.send('¡PONG!')
-})
+    })
 
     app.use(errors)
 
