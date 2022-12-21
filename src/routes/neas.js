@@ -6,6 +6,14 @@ const Neas = require('../models/neas')
 const express = require('express')
 const router = express.Router()
 
+//EDITADO PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
+
+router.get('/', async (req, res) => {
+    
+    res.send (await Neas.find({}))
+    
+})
+
 //1_GET_OBTENER DESIGNACIÓN Y PERIODO ANUAL EN BASE A LA CLASE ORBITAL DEL ASTEROIDE.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/neas/class/amor
 

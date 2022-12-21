@@ -6,10 +6,19 @@ const express = require('express')
 const router = express.Router()
 const winston = require('winston')
 
+
+//EDITADO PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
+
+router.get('/', async (req, res) => {
+    
+    res.send (await Landings.find({}))
+    
+})
+
 //1_GET_NOMBRE Y MASA DE OBJETOS CON MASA SUPERIOR A LA ESPECIFICADA.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/landings/mass/minimo/50
 
-router.get('/mass/minimo/:mass', async (req, res) => {
+router.get('/minimum_mass/:mass', async (req, res) => {
     
     res.send (await Landings.find({mass: {$gte: `${req.params.mass}`}}).select('name mass'))
     
