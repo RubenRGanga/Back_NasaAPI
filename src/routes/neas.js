@@ -6,7 +6,7 @@ const Neas = require('../models/neas')
 const express = require('express')
 const router = express.Router()
 
-//EDITADO PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
+//AÑADO ENDPOINT "/" Y ELIMINO TODOS LOS SELECT PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
 
 router.get('/', async (req, res) => {
     
@@ -18,20 +18,20 @@ router.get('/', async (req, res) => {
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/neas/class/amor
 
 router.get('/class/:class', async (req, res) => {
-    //console.log(req.query)
-    const neas = await Neas.find({$toLower: {orbit_class: `${req.query.class}`}}).select('designation period_yr')
-    res.send(neas)
+
+    // const neas = await Neas.find({$toLower: {orbit_class: `${req.query.class}`}}).select('designation period_yr')
+    const neas = await Neas.find({$toLower: {orbit_class: `${req.query.class}`}})
 })
 
 //2_GET_OBTENER DESIGNACIÓN, FECHA Y PERIODO ANUAL DE TODOS LOS ASTEROIDES QUE CUMPLAN CON UNA FECHA DADA.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/neas?from=1985&to=2022
 
-router.get('/', async (req,res) => {
-    if (req.query.from && req.query.to){
-        const result = await Neas.find({discovery_date:{$gte: req.query.from, $lt: req.query.to}}).select('designation discovery_date period_yr')
-        res.send(result)
-    }
-})
+// router.get('/', async (req,res) => {
+//     if (req.query.from && req.query.to){
+//         const result = await Neas.find({discovery_date:{$gte: req.query.from, $lt: req.query.to}}).select('designation discovery_date period_yr')
+//         res.send(result)
+//     }
+// })
 
 //3_POST_CREAR UN NUEVO NEA EN LA BD.
 

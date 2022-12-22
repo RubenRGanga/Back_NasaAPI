@@ -7,7 +7,7 @@ const router = express.Router()
 const winston = require('winston')
 
 
-//EDITADO PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
+//AÑADO ENDPOINT "/" Y ELIMINO TODOS LOS SELECT PARA DAR SOPORTE AL PROYECTO FRONTEND REACT NASA
 
 router.get('/', async (req, res) => {
     
@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
 
 router.get('/minimum_mass/:mass', async (req, res) => {
     
-    res.send (await Landings.find({mass: {$gte: `${req.params.mass}`}}).select('name mass'))
+    // res.send (await Landings.find({mass: {$gte: `${req.params.mass}`}}).select('name mass'))
+    res.send (await Landings.find({mass: {$gte: `${req.params.mass}`}}))
     
 })
 
@@ -29,8 +30,8 @@ router.get('/minimum_mass/:mass', async (req, res) => {
 
 router.get('/mass/:mass', async (req, res) => {
     
-    res.send (await Landings.find({mass: `${req.params.mass}`}).select('name mass'))
-
+    // res.send (await Landings.find({mass: `${req.params.mass}`}).select('name mass'))
+    res.send (await Landings.find({mass: `${req.params.mass}`}))
 })
 
 //3_GET_OBTENER NOMBRE Y CLASE DE LOS METEORITOS CON UNA CLASE CONCRETA ESPECIFICADA.
@@ -38,7 +39,8 @@ router.get('/mass/:mass', async (req, res) => {
 
 router.get('/class/:recclass', async (req, res) => {
     
-    res.send (await Landings.find({recclass: `${req.params.recclass}`}).select('name recclass'))
+    // res.send (await Landings.find({recclass: `${req.params.recclass}`}).select('name recclass'))
+    res.send (await Landings.find({recclass: `${req.params.recclass}`}))
 
 })
 
@@ -49,8 +51,9 @@ router.get('/', async (req, res) => {
    
 
     if (req.query.from && req.query.to){
+        
         const result =  await Landings.find({year: {$gt: req.query.from, $lt: req.query.to}})
-        .select('name mass year').sort('year')
+        // .select('name mass year').sort('year')
         res.send(result)
 
     }
