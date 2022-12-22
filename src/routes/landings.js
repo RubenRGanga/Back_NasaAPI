@@ -15,6 +15,14 @@ router.get('/', async (req, res) => {
     
 })
 
+router.get('/name/:name', async (req, res) => {
+    res.send (await Landings.find({name: `${req.params.name}`}))
+})
+
+router.get('/year/:year', async (req, res) => {
+    res.send (await Landings.find({year: `${req.params.year}`}))
+})
+
 //1_GET_NOMBRE Y MASA DE OBJETOS CON MASA SUPERIOR A LA ESPECIFICADA.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/landings/mass/minimo/50
 
