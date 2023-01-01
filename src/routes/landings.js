@@ -23,6 +23,18 @@ router.get('/year/:year', async (req, res) => {
     res.send (await Landings.find({year: `${req.params.year}`}))
 })
 
+router.put('/edit/:name', async (req, res) => {
+    const landing = await Landings.findOneAndUpdate({name: req.params.name}, req.body)
+    res.send(landing)
+    winston.info(`Editado Landing con name: ${req.params.name}`)
+})
+
+router.delete('/delete/:name', async (req, res) => {
+    const landing = await Landings.findOneAndDelete({name: req.params.name})
+    res.send(landing)
+    winston.info(`Eliminado Landing con name: ${req.params.name}`)
+})
+
 //1_GET_NOMBRE Y MASA DE OBJETOS CON MASA SUPERIOR A LA ESPECIFICADA.
 //Ruta de ejemplo: http://localhost:3000/api/astronomy/landings/mass/minimo/50
 
