@@ -23,16 +23,16 @@ router.get('/year/:year', async (req, res) => {
     res.send (await Landings.find({year: `${req.params.year}`}))
 })
 
-router.put('/edit/:name', async (req, res) => {
-    const landing = await Landings.findOneAndUpdate({name: req.params.name}, req.body)
+router.put('/edit/:_id', async (req, res) => {
+    const landing = await Landings.findOneAndUpdate({_id: req.params._id}, req.body)
     res.send(landing)
-    winston.info(`Editado Landing con name: ${req.params.name}`)
+    winston.info(`Editado Landing con id: ${req.params._id}`)
 })
 
-router.delete('/delete/:name', async (req, res) => {
-    const landing = await Landings.findOneAndDelete({name: req.params.name})
+router.delete('/delete/:_id', async (req, res) => {
+    const landing = await Landings.findOneAndDelete({_id: req.params._id})
     res.send(landing)
-    winston.info(`Eliminado Landing con name: ${req.params.name}`)
+    winston.info(`Eliminado Landing con id: ${req.params._id}`)
 })
 
 //1_GET_NOMBRE Y MASA DE OBJETOS CON MASA SUPERIOR A LA ESPECIFICADA.
